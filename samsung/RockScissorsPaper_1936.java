@@ -8,8 +8,12 @@ public class RockScissorsPaper_1936 {
 		a = sc.nextInt();
 		b = sc.nextInt();
 		
-		if((b!=1&&a>b) || a==1 && b==3)
-			System.out.println("A");
+		if(a>b || (a==1&&b==3)) {
+			if(a==3 && b==1)
+				System.out.println("B");
+			else
+				System.out.println("A");
+		}
 		else
 			System.out.println("B");
 	}
