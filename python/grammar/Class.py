@@ -2,6 +2,10 @@ class MyHome:
     doorColor = 'red'
     doorState = 'closed'
 
+    def __init__(self):
+        print('Hi')
+    def __del__(self):
+        print('Bye')
     def changDoorColor(self, color):
         self.doorColor = color
     def changeDoorState(self, state):
