@@ -13,7 +13,6 @@ if numOfUnheard>numOfUnseen:
 else:
     listResult = list(set(listUnseen)-(set(listUnseen)-set(listUnheard)))
 
-listResult.sort()
 print(len(listResult))
-for i in range(0, len(listResult)):
-    print(listResult[i])
+for e in sorted(listResult):
+    print(e)
