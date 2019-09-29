@@ -1,3 +1,6 @@
+import sys
+read = sys.stdin.readline
+
 def check(meeting):
     count = 0
     baseTime = 0
@@ -8,11 +11,11 @@ def check(meeting):
     return count
 
 if __name__ == "__main__":
-    numOfMeetings = int(input())
+    numOfMeetings = int(read())
     meeting = []
 
     for i in range(0,numOfMeetings):
-        start,end = map(int,input().split())
+        start,end = map(int,read().split())
         meeting.append((end,start))
 
     meeting = sorted(meeting)
