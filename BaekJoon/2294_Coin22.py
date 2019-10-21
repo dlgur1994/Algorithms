@@ -1,7 +1,7 @@
 import sys
 
 coin,total = map(int,sys.stdin.readline().split())
-worth = [0]*(coin+1)
+worth = [0 for i in range(coin+1)]
 for i in range(1,coin+1):
     worth[i] = int(sys.stdin.readline())
 arr = [sys.maxsize for i in range(total+1)]
