@@ -4,7 +4,7 @@ num = 0
 tot = 0.0
 
 while True:
-    sval = sys.stdin.readline()
+    sval = sys.stdin.readline().rstrip()
     if(sval=="done"):
         break
     try:
