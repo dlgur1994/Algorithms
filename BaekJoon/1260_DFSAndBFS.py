@@ -1,5 +1,19 @@
 import sys
 
+def bfs(root):
+    visited = [False for i in range(node+1)]
+    queue = [root]
+    while queue:
+        length = len(queue)
+        for i in range(length):
+            n = queue.pop(0)
+            if not visited[n]:
+                visited[n] = True
+                for j in range(len(graph[n])):
+                    queue.append(graph[n][j])
+                print(n,end=' ')
+    print()
+
 node,line,start = tuple(map(int,sys.stdin.readline().split()))
 graph = dict()
 temp1 = list()
@@ -19,4 +33,6 @@ for i in range(line):
     temp1 = []
     temp2 = []
 
-print(graph)
+for n in graph.keys():
+    graph[n] = sorted(graph[n])
+bfs(start)
