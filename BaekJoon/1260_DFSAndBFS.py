@@ -13,6 +13,19 @@ def bfs(root):
             print(n,end=' ')
     print()
 
+def dfs(root):
+    visited = [False for i in range(node+1)]
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        for child in graph[n]:
+            if not visited[child]:
+                visited[child] = True
+                stack.append(child)
+        print(n,end=' ')
+
+    print()
+
 node,line,start = tuple(map(int,sys.stdin.readline().split()))
 graph = dict()
 temp1 = list()
@@ -34,4 +47,6 @@ for i in range(line):
 
 for n in graph.keys():
     graph[n] = sorted(graph[n])
+
+dfs(start)
 bfs(start)
