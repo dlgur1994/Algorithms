@@ -4,14 +4,13 @@ def bfs(root):
     visited = [False for i in range(node+1)]
     queue = [root]
     while queue:
-        length = len(queue)
-        for i in range(length):
-            n = queue.pop(0)
-            if not visited[n]:
-                visited[n] = True
-                for j in range(len(graph[n])):
-                    queue.append(graph[n][j])
-                print(n,end=' ')
+        n = queue.pop(0)
+        if not visited[n]:
+            visited[n] = True
+            for child in graph[n]:
+                if not visited[child]:
+                    queue.append(child)
+            print(n,end=' ')
     print()
 
 node,line,start = tuple(map(int,sys.stdin.readline().split()))
