@@ -16,14 +16,17 @@ def bfs(root):
 def dfs(root):
     visited = [False for i in range(node+1)]
     stack = [root]
+    temp = []
     while stack:
-        n = stack.pop()
-        for child in graph[n]:
-            if not visited[child]:
-                visited[child] = True
-                stack.append(child)
-        print(n,end=' ')
-
+        n = stack.pop(0)
+        if not visited[n]:
+            visited[n] = True
+            for child in graph[n]:
+                if not visited[child]:
+                    temp.append(child)
+            stack = temp + stack
+            temp = []
+            print(n,end=' ')
     print()
 
 node,line,start = tuple(map(int,sys.stdin.readline().split()))
