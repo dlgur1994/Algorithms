@@ -1,10 +1,10 @@
 import sys
 
 num = int(sys.stdin.readline())
-peoDict = dict()
+peoDict = list()
 for _ in range(num):
     age,name = sys.stdin.readline().split()
-    peoDict[name] = age
+    peoDict.append((age,name))
 
-for name,age in sorted(peoDict.items(), key=lambda x: x[1]):
-    print (age,name)
+for age,name in sorted(peoDict, key = lambda x:int(x[0])):
+    print(age, name)
