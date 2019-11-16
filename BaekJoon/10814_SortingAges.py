@@ -8,3 +8,5 @@ for _ in range(num):
 
 for age,name in sorted(peoDict, key = lambda x:int(x[0])):
     print(age, name)
+
+#have to make 'age' int.
