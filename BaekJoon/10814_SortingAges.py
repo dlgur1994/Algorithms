@@ -1,12 +1,12 @@
 import sys
 
 num = int(sys.stdin.readline())
-peoDict = list()
+numList = []
 for _ in range(num):
-    age,name = sys.stdin.readline().split()
-    peoDict.append((age,name))
+    numList.append(int(sys.stdin.readline()))
 
-for age,name in sorted(peoDict, key = lambda x:int(x[0])):
-    print(age, name)
+for e in sorted(numList):
+    print(e)
 
-#have to make 'age' int.
+#'[]' is faster than 'list()'
+#'list.append()' was faster than initializing the list and approaching each component.
