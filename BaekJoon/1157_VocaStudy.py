@@ -40,3 +40,21 @@ else:
     print('?')
 '''
 #its length is shorter, but it takes more time.
+
+#shoter version
+'''
+import sys
+read = sys.stdin.readline().rstrip
+
+voca = read().upper()
+vocaList = list(set(voca))
+countList = []
+
+for e in vocaList:
+    countList.append(voca.count(e))
+if countList.count(max(countList)) == 1:
+    print(vocaList[countList.index(max(countList))])
+else:
+    print('?')
+'''
+#it takes shortest time
