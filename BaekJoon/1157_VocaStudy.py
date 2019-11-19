@@ -21,7 +21,6 @@ else:
     print('?')
 
     
-    
 #longer version
 '''
 import sys
@@ -40,6 +39,7 @@ else:
     print('?')
 '''
 #its length is shorter, but it takes more time.
+
 
 #shoter version
 '''
