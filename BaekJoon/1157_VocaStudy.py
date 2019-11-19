@@ -19,3 +19,24 @@ if countList[0][1]>countList[1][1]:
     print(countList[0][0])
 else:
     print('?')
+
+    
+    
+#longer version
+'''
+import sys
+read = sys.stdin.readline().rstrip
+
+voca = read().upper()
+vocaList = list(set(voca))
+countList = [0]*len(vocaList)
+
+for e in voca:
+    countList[vocaList.index(e)] += 1
+
+if countList.count(max(countList)) == 1:
+    print(vocaList[countList.index(max(countList))])
+else:
+    print('?')
+'''
+#its length is shorter, but it takes more time.
