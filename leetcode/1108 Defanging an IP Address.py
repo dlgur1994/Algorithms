@@ -5,8 +5,9 @@ class Solution:
     def defangIPaddr(self, address: str) -> str:
         return address.replace(".","[.]")
 
+ipadd = Solution()
 input = read()
-result = defangIPaddr(input)
+result = ipadd.defangIPaddr(input)
 print(result, end='')
 
 
@@ -18,7 +19,8 @@ class Solution:
     def defangIPaddr(self, address: str) -> str:
         return "[.]".join(address.split('.'))
 
+ipadd = Solution()
 input = read()
-result = defangIPaddr(input)
+result = ipadd.defangIPaddr(input)
 print(result, end='')
 '''
