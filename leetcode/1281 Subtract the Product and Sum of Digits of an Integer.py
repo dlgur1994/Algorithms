@@ -2,10 +2,6 @@ import sys
 read = sys.stdin.readline
 
 class Solution:
-    input = int(read())
-    result = subtractProductAndSum(input)
-    print(result)
-    
     def subtractProductAndSum(self, n: int) -> int:
         lenOfNum = len(str(n))
         arr = [None] * lenOfNum
@@ -21,3 +17,8 @@ class Solution:
             i = i+1
 
         return product-sum
+
+mod = Solution()
+input = int(read())
+result = mod.subtractProductAndSum(input)
+print(result)
