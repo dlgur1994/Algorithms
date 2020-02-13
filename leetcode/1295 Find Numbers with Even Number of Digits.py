@@ -1,7 +1,6 @@
 import sys
 read = sys.stdin.readline
 
-
 class Solution:
     def findNumbers(self, nums) -> int:
         numOfEven = 0
