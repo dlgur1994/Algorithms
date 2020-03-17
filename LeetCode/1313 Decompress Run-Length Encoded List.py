@@ -8,7 +8,6 @@ class Solution:
             result += [nums[2*i+1]] * nums[2*i] 
         return result
 
-
 numList = list(map(int,read().split(',')))
 mod = Solution()
 print(mod.decompressRLElist(numList))
