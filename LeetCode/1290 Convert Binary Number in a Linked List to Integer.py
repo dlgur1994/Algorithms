@@ -19,11 +19,21 @@ class LinkedList:
 
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
+        num = 0
+        while head:
+            num = 2*num+head.val
+            head = head.next
+        return num
+        
+'''
+class Solution:
+    def getDecimalValue(self, head: ListNode) -> int:
         num = ''
         while head:
             num += str(head.val)
             head = head.next
         return int(num,2)
+'''
 
 numList = list(map(int,read().split(',')))
 linkedList = LinkedList()
