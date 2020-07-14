@@ -5,24 +5,20 @@ read = sys.stdin.readline
 
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
-        intermList = []
+        startList = []
+        destList = []
         cityList = []
 
-        for i in range(0,int((len(paths)-1)/2)):
-            intermList.append(paths[2*i+1])
+        #separate start points and destinations
+        for i in range(0,int((len(paths))/4)):
+            startList.append(paths[4*i+1])
+            destList.append(paths[4*i+3])
 
-        buf = intermList
-        for i in range(0,int(len(intermList)/2)):
-            buf.remove(intermList[2*i])
-            if intermList[2*i] not in buf:
-                cityList.append(intermList[2*i])
-                cityList.append(intermList[2*i+1])
-                # intermList.remove(intermList[2*i])
-                # intermList.remove(intermList[2*i+1])
-            # else:
-            #     cityList[i]
-            #     intermList -
-            #
+        for i in range(0,len(startList)):
+            if startList[i] not in destList:
+                cityList.append(startList[i])
+                cityList.append(destList[i])
+
         return cityList
 
 input = list(read().rstrip().split('"'))
