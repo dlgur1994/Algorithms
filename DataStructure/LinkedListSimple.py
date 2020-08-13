@@ -5,7 +5,7 @@ class Node:
 
 class LinkedList:
     def __init__(self):
-        dummy = Node(0)
+        dummy = Node('dummy')
         self.head = dummy
         self.tail = dummy
 
@@ -15,17 +15,37 @@ class LinkedList:
         self.tail = newNode
 
     def printList(self):
-        while self.tail==None:
+        while self.head != self.tail.next:
             print(self.head.data)
             self.head = self.head.next
-'''
-    def delete(self):
 
-    def search(self):
-'''
+    def searchNode(self,find_data):
+        while self.head != self.tail.next:
+            if(self.head.data == find_data):
+                print('found')
+                return
+            self.head = self.head.next
+        print('not found')
+
+    # def deleteNode(self,delete_data):
+    #     while self.head != self.tail.next:
+    #         if(self.head.next.data == delete_data):
+    #             self.head.next = self.head.next.next
+    #             return
+    #         self.head = self.head.next
 
 
 linkedList = LinkedList()
+linkedList.insertNode(3)
+linkedList.insertNode(4)
 linkedList.insertNode(5)
 linkedList.insertNode(6)
-linkedList.printList()
+#linkedList.printList()
+
+linkedList.searchNode(3)
+linkedList.searchNode(5)
+linkedList.searchNode(6)
+linkedList.searchNode(7)
+
+# linkedList.deleteNode(4)
+# linkedList.printList()
