@@ -21,11 +21,12 @@ class LinkedList:
             cur = cur.next
 
     def searchNode(self,find_data):
-        while self.head != self.tail.next:
-            if(self.head.data == find_data):
+        cur = self.head
+        while cur != self.tail.next:
+            if(cur.data == find_data):
                 print('found')
                 return
-            self.head = self.head.next
+            cur = cur.next
         print('not found')
 
     # def deleteNode(self,delete_data):
@@ -41,9 +42,7 @@ linkedList.insertNode(3)
 linkedList.insertNode(4)
 linkedList.insertNode(5)
 linkedList.insertNode(6)
-linkedList.printList()
-print('w')
-linkedList.printList()
+# linkedList.printList()
 
 # linkedList.searchNode(3)
 # linkedList.searchNode(4)
