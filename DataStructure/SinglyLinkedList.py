@@ -15,9 +15,10 @@ class LinkedList:
         self.tail = newNode
 
     def printList(self):
-        while self.head != self.tail.next:
-            print(self.head.data)
-            self.head = self.head.next
+        cur = self.head
+        while cur != self.tail.next:
+            print(cur.data)
+            cur = cur.next
 
     def searchNode(self,find_data):
         while self.head != self.tail.next:
@@ -40,12 +41,16 @@ linkedList.insertNode(3)
 linkedList.insertNode(4)
 linkedList.insertNode(5)
 linkedList.insertNode(6)
-#linkedList.printList()
+linkedList.printList()
+print('w')
+linkedList.printList()
 
-linkedList.searchNode(3)
-linkedList.searchNode(5)
-linkedList.searchNode(6)
-linkedList.searchNode(7)
+# linkedList.searchNode(3)
+# linkedList.searchNode(4)
+# linkedList.searchNode(5)
+# linkedList.searchNode(6)
+# linkedList.searchNode(7)
+
 
 # linkedList.deleteNode(4)
 # linkedList.printList()
