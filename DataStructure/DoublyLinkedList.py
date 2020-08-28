@@ -10,40 +10,57 @@ class DoublyLinkedList:
         self.head = dummy
         self.tail = dummy
 
-    def insertNode(self,data):
-        newNode = Node(data)
+    def insert_node(self,insert_data):
+        newNode = Node(insert_data)
         newNode.prev = self.tail
         self.tail.next = newNode
         self.tail = newNode
 
-    def searchNode(self,data):
+    def search_node(self,search_data):
         cur = self.head
         while cur != self.tail.next:
-            if(cur.data == data):
+            if(cur.data == search_data):
                 print('found')
                 return
             cur = cur.next
         print('not found')
 
-    def printNode(self):
+    def delete_node(self,delete_data):
+        cur = self.head
+        while cur != self.tail.next:
+            if(cur.next.data == delete_data):
+                if cur.next == self.tail:
+                    self.tail = cur
+                    return
+                cur.next = cur.next.next
+                cur.next.prev = cur
+                return
+            cur = cur.next
+
+    def print_node(self):
         cur = self.head
         while cur != self.tail.next:
             print(cur.data)
             cur = cur.next
 
-    def printNodeReverse(self):
+    def print_node_reverse(self):
         cur = self.tail
         while cur != self.head.prev:
             print(cur.data)
             cur = cur.prev
 
 doublyLinkedList = DoublyLinkedList()
-doublyLinkedList.insertNode(3)
-doublyLinkedList.insertNode(4)
-doublyLinkedList.insertNode(5)
-# doublyLinkedList.printNode()
-doublyLinkedList.printNodeReverse()
+doublyLinkedList.insert_node(3)
+doublyLinkedList.insert_node(4)
+doublyLinkedList.insert_node(5)
+doublyLinkedList.print_node()
+doublyLinkedList.print_node_reverse()
 
-# doublyLinkedList.searchNode(3)
-# doublyLinkedList.searchNode(4)
-# doublyLinkedList.searchNode(5)
+doublyLinkedList.search_node(3)
+doublyLinkedList.search_node(4)
+doublyLinkedList.search_node(5)
+
+doublyLinkedList.delete_node(3)
+doublyLinkedList.delete_node(4)
+doublyLinkedList.delete_node(5)
+doublyLinkedList.print_node()
