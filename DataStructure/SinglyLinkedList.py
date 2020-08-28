@@ -9,18 +9,18 @@ class SinglyLinkedList:
         self.head = dummy
         self.tail = dummy
 
-    def insertNode(self,data):
+    def insert_node(self,data):
         newNode = Node(data)
         self.tail.next = newNode
         self.tail = newNode
 
-    def printList(self):
+    def print_list(self):
         cur = self.head
         while cur != self.tail.next:
             print(cur.data)
             cur = cur.next
 
-    def searchNode(self,find_data):
+    def search_node(self,find_data):
         cur = self.head
         while cur != self.tail.next:
             if(cur.data == find_data):
@@ -29,7 +29,7 @@ class SinglyLinkedList:
             cur = cur.next
         print('not found')
 
-    def deleteNode(self,delete_data):
+    def delete_node(self,delete_data):
         cur = self.head
         while cur != self.tail.next:
             if(cur.next.data == delete_data):
@@ -38,21 +38,21 @@ class SinglyLinkedList:
             cur = cur.next
 
 
-linkedList = LinkedList()
-linkedList.insertNode(3)
-linkedList.insertNode(4)
-linkedList.insertNode(5)
-linkedList.insertNode(6)
-linkedList.printList()
+linkedList = SinglyLinkedList()
+linkedList.insert_node(3)
+linkedList.insert_node(4)
+linkedList.insert_node(5)
+linkedList.insert_node(6)
+linkedList.print_list()
 
-linkedList.searchNode(3)
-linkedList.searchNode(4)
-linkedList.searchNode(5)
-linkedList.searchNode(6)
-linkedList.searchNode(7)
+linkedList.search_node(3)
+linkedList.search_node(4)
+linkedList.search_node(5)
+linkedList.search_node(6)
+linkedList.search_node(7)
 
-linkedList.deleteNode(3)
-linkedList.deleteNode(4)
-linkedList.deleteNode(5)
-linkedList.deleteNode(6)
-linkedList.printList()
+linkedList.delete_node(3)
+linkedList.delete_node(4)
+linkedList.delete_node(5)
+linkedList.delete_node(6)
+linkedList.print_list()
