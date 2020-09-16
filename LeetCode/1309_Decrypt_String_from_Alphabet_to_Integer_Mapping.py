@@ -4,13 +4,21 @@ read = sys.stdin.readline
 
 class Solution:
     def freqAlphabets(self, s: str) -> str:
-        pound_key_order = [e for e,value in enumerate(s) if value=='#']
-        for e in pound_key_order:
-            s = s.replace(s[e-2], chr(int(s[e-2]+s[e-1])+96))
-            s = s.replace(s[e-1], ' ')
-            s = s.replace(s[e], ' ')
-        print(s)
+        stack = []
+        output = ''
 
+        s = list(s)
+        for e in s:
+            if e == '#':
+                a,b = stack.pop(), stack.pop()
+                stack.append(b+a)
+            else:
+                stack.append(e)
+
+        for e in stack:
+            output += chr(int(e)+96)
+
+        return output
 
 input_str = read().rstrip()
 mod = Solution()
