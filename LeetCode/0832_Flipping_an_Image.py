@@ -21,7 +21,7 @@ class Solution:
 #                 if A[i][j] == 0:
 #                     A[i][j] = 1
 #                 else:
-#                     A[i][j] = 0
+#                     A[i][j] = 032
 #         return A
 
 input_matrix = read().rstrip().lstrip('[[').rstrip(']]').split('],[')
