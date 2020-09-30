@@ -39,19 +39,27 @@ class BinaryTree:
     #         self.print_node(node.right)
 
 class Solution:
-    def _appendNode(self, root):
-        if root == None:
-            pass
-        else:
-            self._appendNode(root.left)
-            output.append(root.data)
-            output.append('null')
-            self._appendNode(root.right)
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        output = []
-        _appendNode(root)
-        output.pop()
-        return output
+        def dfs(root):
+            if root is None:
+                pass
+            else:
+                dfs(root.left)
+                elements.append(root.data)
+                dfs(root.right)
+
+        def createBST(elist):
+            root_node = TreeNode(elist[0])
+            new_root = root_node
+            elist.pop(0)
+            for e in elist:
+                new_root.right = TreeNode(e)
+                new_root = new_root.right
+            return new_root
+
+        elements = []
+        dfs(root)
+        return createBST(elements)
 
 input = list(read().rstrip().rstrip(']').lstrip('[').split(','))
 tree_node = BinaryTree()
