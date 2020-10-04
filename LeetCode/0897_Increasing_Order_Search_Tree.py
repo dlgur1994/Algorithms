@@ -49,12 +49,12 @@ class Solution:
                 dfs(root.right)
 
         def createBST(elist):
-            root_node = TreeNode(elist[0])
-            new_root = root_node
+            new_root = TreeNode(elist[0])
+            cur_root = new_root
             elist.pop(0)
             for e in elist:
-                new_root.right = TreeNode(e)
-                new_root = new_root.right
+                cur_root.right = TreeNode(e)
+                cur_root = cur_root.right
             return new_root
 
         elements = []
