@@ -30,29 +30,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
-class BinaryTree:
-    def __init__(self):
-        self.root = None
-    def insertNode(self,val):
-        new_node = TreeNode(val)
-        self.cur = self.root
-        if self.root is None:
-            self.root = new_node
-            return
-        while True:
-            if new_node.val<self.cur.val:
-                if self.cur.left==None:
-                    self.cur.left = new_node
-                    break
-                else:
-                    self.cur = self.cur.left
-            else:
-                if self.cur.right==None:
-                    self.cur.right = new_node
-                    break
-                else:
-                    self.cur = self.cur.right
-
 class Solution:
     def sortedListToBST(self, head: ListNode) -> TreeNode:
         def getValues(head):
@@ -61,28 +38,27 @@ class Solution:
                 temp.append(head.val)
                 head = head.next
             return temp
-        def changeOrder():
-            if value_list:
-                ordered_list.append(int(value_list[len(value_list)//2]))
-                value_list.remove(value_list[len(value_list)//2])
-                changeOrder()
+        def makeTree(values,low,high):
+            if low>high:
+                return
+            mid = (low+high)//2
+            new_node = TreeNode(values[mid])
+            print(new_node.val)
+            new_node.left = makeTree(values,low,mid-1)
+            new_node.right = makeTree(values,mid+1,high)
 
         value_list = getValues(head)
-        ordered_list = []
-        output_list = []
-
-        changeOrder()
-        for e in ordered_list:
-            output_list.append(TreeNode(e))
-        return output_list[:2]
+        root = makeTree(value_list,0,len(value_list)-1)
+        return root
 
 input = list(read().rstrip().lstrip('[').rstrip(']').split(','))
 linked_list = LinkedList()
 for e in input:
-    linked_list.insertNode(e)
-mod = Solution()
+    linked_list.insertNode(int(e))
 
+mod = Solution()
+print(mod.sortedListToBST(linked_list.head))
+#
 # binary_tree = BinaryTree()
 # for e in output_list:
 #     binary_tree.insertNode(e)
-print(mod.sortedListToBST(linked_list.head))
