@@ -4,19 +4,18 @@ read = sys.stdin.readline
 
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        def dfs(node,ans):
-            visited[node] = True
-            if node == len(graph)-1:
-                res.append(ans[:])
-                return
-            for child in graph[node]:
-                ans.append(child)
-                dfs(child,ans)
-                ans.pop()
-        visited = [False for i in range(len(graph))]
-        res = []
-        dfs(0,[0])
-        return res
+        def findPath(start):
+            route= []
+            stack = [(start,[start])]
+            while stack:
+                node,route = stack.pop()
+                if node==len(graph)-1:
+                    routes.append(route)
+                for e in graph[node]:
+                    stack.append((e,route+[e]))
+        routes = []
+        findPath(0)
+        return routes
 
 input = list(read().rstrip().lstrip('[').rstrip(']').split('],['))
 for i in range(len(input)):
