@@ -13,6 +13,7 @@ class Solution:
                 ans.append(child)
                 dfs(child,ans)
                 ans.pop()
+
         visited = [False for i in range(len(graph))]
         res = []
         dfs(0,[0])
