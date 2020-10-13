@@ -36,7 +36,8 @@ class Solution:
                     if node.right:
                         queue.append((node.right,height))
                         temp.append(node.right.val)
-                visited.append(temp)
+                if temp!=[]:
+                    visited.append(temp)
                 height += 1
 
             return visited
