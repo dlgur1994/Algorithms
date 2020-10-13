@@ -4,6 +4,7 @@ read = sys.stdin.readline
 
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+<<<<<<< HEAD
         def dfs(node,ans):
             visited[node] = True
             if node == len(graph)-1:
@@ -18,6 +19,20 @@ class Solution:
         res = []
         dfs(0,[0])
         return res
+=======
+        def findPath(start):
+            route= []
+            stack = [(start,[start])]
+            while stack:
+                node,route = stack.pop()
+                if node==len(graph)-1:
+                    routes.append(route)
+                for e in graph[node]:
+                    stack.append((e,route+[e]))
+        routes = []
+        findPath(0)
+        return routes
+>>>>>>> 32b26bf1b73cf3165ac38148ac4f130a42896221
 
 input = list(read().rstrip().lstrip('[').rstrip(']').split('],['))
 for i in range(len(input)):

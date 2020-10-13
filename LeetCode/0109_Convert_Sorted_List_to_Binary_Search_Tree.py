@@ -30,6 +30,22 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
+def printNode(root):
+    def _printNode(node):
+        output.append(node.left.val) if node.left else output.append('null')
+        output.append(node.right.val) if node.right else output.append('null')
+        if node.left:
+            _printNode(node.left)
+        else:
+            return
+        if node.right:
+            _printNode(node.right)
+        else:
+            return
+    output.append(root.val)
+    _printNode(root)
+
 class Solution:
     def sortedListToBST(self, head: ListNode) -> TreeNode:
         def getValues(head):
@@ -43,10 +59,9 @@ class Solution:
                 return
             mid = (low+high)//2
             new_node = TreeNode(values[mid])
-            print(new_node.val)
             new_node.left = makeTree(values,low,mid-1)
             new_node.right = makeTree(values,mid+1,high)
-
+            return new_node
         value_list = getValues(head)
         root = makeTree(value_list,0,len(value_list)-1)
         return root
@@ -55,10 +70,7 @@ input = list(read().rstrip().lstrip('[').rstrip(']').split(','))
 linked_list = LinkedList()
 for e in input:
     linked_list.insertNode(int(e))
-
 mod = Solution()
-print(mod.sortedListToBST(linked_list.head))
-#
-# binary_tree = BinaryTree()
-# for e in output_list:
-#     binary_tree.insertNode(e)
+output = []
+printNode(mod.sortedListToBST(linked_list.head))
+print(output)
