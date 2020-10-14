@@ -22,24 +22,21 @@ class BinaryTree:
 
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
-        def bfs(_root):
-            visited = []
-            queue = deque([(_root,0)])
-            while queue:
-                node,height = queue.popleft()
-                if height>=len(visited):
-                    visited.append([node.val])
-                else:
-                    visited[height].append(node.val)
-                if node.left:
-                    queue.append((node.left,height+1))
-                if node.right:
-                    queue.append((node.right,height+1))
-            return visited
-
         if root == None:
             return []
-        return list(reversed(bfs(root)))
+        visited = []
+        queue = deque([(root,0)])
+        while queue:
+            node,height = queue.popleft()
+            if height>=len(visited):
+                visited.append([node.val])
+            else:
+                visited[height].append(node.val)
+            if node.left:
+                queue.append((node.left,height+1))
+            if node.right:
+                queue.append((node.right,height+1))
+        return list(reversed(visited))
 
 
 input = list(map(TreeNode,read().rstrip().lstrip('[').rstrip(']').split(',')))
