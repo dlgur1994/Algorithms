@@ -33,17 +33,13 @@ class Solution:
             if switch==0:
                 for (row,col) in visited:
                     board[row][col] = 'X'
-            print(visited)
             checked.extend(visited)
 
         checked = []
         for i in range(len(board)):
             for j in range(len(board[0])):
                 if (i,j) not in checked and board[i][j]=='O':
-                    print((i,j))
                     dfs(i,j)
-                    print('####')
-        print(board)
 
 input = list(read().rstrip().lstrip('[[').rstrip(']]').split('],['))
 for i in range(len(input)):
