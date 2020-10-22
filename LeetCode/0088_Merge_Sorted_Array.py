@@ -7,7 +7,7 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        for i in range(m):
+        for i in range(n):
             nums1[nums1.index(0)] = nums2[i]
         nums1.sort()
         print(nums1)
