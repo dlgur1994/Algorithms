@@ -5,7 +5,8 @@ read = sys.stdin.readline
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         num_dict = { i: nums[i] for i in range(len(nums))}
-        print(num_dict)
+        for key in num_dict:
+            print(num_dict[key])
         # for e in nums:
         #     if (target-e) in nums:
         #         nums2 = list(reversed(nums))
@@ -21,3 +22,5 @@ num_list = list(map(int,read().rstrip().lstrip('[').rstrip(']').split(',')))
 target_num = int(read().rstrip())
 mod = Solution()
 print(mod.twoSum(num_list,target_num))
+
+#list -> dict 변환,
