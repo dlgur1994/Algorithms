@@ -16,8 +16,6 @@ class Solution:
         output_list = []
         for subdom, cnt in dom_dict.items():
             output_list += [str(cnt)+ ' '+ subdom]
-        # for e in dom_dict:
-        #     output_list.append(str(dom_dict[e]) + ' ' + e)
         return output_list
 
 
