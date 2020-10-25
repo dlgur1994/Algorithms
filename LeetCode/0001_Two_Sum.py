@@ -4,25 +4,14 @@ read = sys.stdin.readline
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        num_dict = { i: nums[i] for i in range(len(nums))}
-        print(num_dict)
-        for key in num_dict:
-            if target-num_dict[key] in num_dict:
-                return [key]
-        # for e in nums:
-        #     if (target-e) in nums:
-        #         nums2 = list(reversed(nums))
-        #         if nums.index(e)==len(nums)-1-nums2.index(target-e):
-        #             continue
-        #         return [nums.index(e),len(nums)-1-nums2.index(target-e)]
-        # for i in range(len(nums)-1):
-        #     for j in range(i+1,len(nums)):
-        #         if nums[i]+nums[j]==target:
-        #             return [i,j]
+        num_dict = {}
+        for i in range(len(nums)):
+            if (target-nums[i]) in num_dict:
+                return num_dict[target-nums[i]],i
+            else:
+                num_dict[nums[i]] = i
 
 num_list = list(map(int,read().rstrip().lstrip('[').rstrip(']').split(',')))
 target_num = int(read().rstrip())
 mod = Solution()
 print(mod.twoSum(num_list,target_num))
-
-#list -> dict 변환,
