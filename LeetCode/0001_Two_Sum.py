@@ -5,8 +5,10 @@ read = sys.stdin.readline
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         num_dict = { i: nums[i] for i in range(len(nums))}
+        print(num_dict)
         for key in num_dict:
-            print(num_dict[key])
+            if target-num_dict[key] in num_dict:
+                return [key]
         # for e in nums:
         #     if (target-e) in nums:
         #         nums2 = list(reversed(nums))
