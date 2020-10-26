@@ -24,7 +24,7 @@ class Solution:
             num = 2*num+head.val
             head = head.next
         return num
-        
+
 '''
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
