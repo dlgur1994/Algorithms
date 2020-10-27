@@ -4,15 +4,14 @@ read = sys.stdin.readline
 
 class Solution:
     def checkPossibility(self, nums: List[int]) -> bool:
+        cnt = 0
         if len(nums)<3:
             return True
-        for i in range(len(nums)):
-            temp = nums[:]
-            del temp[i]
-            print(temp)
-            if temp == sorted(temp):
-                return True
-        return False
+        for i in range(1, len(nums)-1):
+            if nums[i]>nums[i+1]:
+                cnt += 1
+                nums[i]=nums[i+1]
+
 
 num_list = list(map(int,read().rstrip().lstrip('[').rstrip(']').split(',')))
 mod = Solution()
