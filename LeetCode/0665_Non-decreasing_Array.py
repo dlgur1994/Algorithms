@@ -10,8 +10,10 @@ class Solution:
         for i in range(1, len(nums)-1):
             if nums[i]>nums[i+1]:
                 cnt += 1
-                nums[i]=nums[i+1]
-
+                wrong_index = i
+                if cnt>1:
+                    return False
+        return True
 
 num_list = list(map(int,read().rstrip().lstrip('[').rstrip(']').split(',')))
 mod = Solution()
