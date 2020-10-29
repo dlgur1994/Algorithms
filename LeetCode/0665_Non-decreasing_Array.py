@@ -7,12 +7,13 @@ class Solution:
         cnt = 0
         if len(nums)<3:
             return True
-        for i in range(1, len(nums)-1):
+        for i in range(len(nums)-1):
             if nums[i]>nums[i+1]:
-                cnt += 1
-                wrong_index = i
-                if cnt>1:
+                if cnt>0:
                     return False
+                cnt += 1
+                if i>0 and nums[i-1]>nums[i+1]:
+                    nums[i+1] = nums[i]
         return True
 
 num_list = list(map(int,read().rstrip().lstrip('[').rstrip(']').split(',')))
