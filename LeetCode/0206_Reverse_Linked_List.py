@@ -25,18 +25,25 @@ class LinkedList:
 
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        node_list = []
+        if head == None:
+            return None
+        values = []
         while head:
-            node_list.append(head)
+            values.append(head.val)
             head = head.next
-        for i in range(1,len(node_list)-1):
-            node_list[-i].next = node_list[-i-1]
-        node_list[0].next = None
-        return node_list[-1]
+        new_head = ListNode(values[-1])
+        cur = new_head
+        for i in range(len(values)-2,-1,-1):
+            cur.next = ListNode(values[i])
+            cur = cur.next
+        return new_head
 
 input_list = list(map(int,read().rstrip().split(',')))
 linked_list = LinkedList()
 for e in input_list:
     linked_list.insertNode(ListNode(e))
 mod = Solution()
-print(mod.reverseList(linked_list.head))
+head = mod.reverseList(linked_list.head)
+while head != None:
+    print(head.val)
+    head = head.next
