@@ -25,8 +25,8 @@ class LinkedList:
 
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        output_list = []
-        cnt = 0
+        if l1 == None: return l2
+        if l2 == None: return l1
         if l1.val < l2.val:
             head = l1
             l1 = l1.next
@@ -34,37 +34,16 @@ class Solution:
             head = l2
             l2 = l2.next
         cur = head
-        print('#', cnt, cur.val, l1.val, l2.val)
-        cnt += 1
-        while l1.next != None or l2.next != None:
-            if l1 == None:
-                while l2 != None:
-                    cur.next = l2
-                    cur = cur.next
-                    l2 = l2.next
-                print('1','#', cnt, cur.val, l1.val, l2.val)
-                cnt += 1
-                break
-            if l2 == None:
-                while l1 != None:
-                    cur.next = l1
-                    cur = cur.next
-                    l1 = l1.next
-                print('2','#', cnt, cur.val, l1.val, l2.val)
-                cnt += 1
-                break
+        while l1 and l2:
             if l1.val > l2.val:
                 cur.next = l2
-                cur = cur.next
                 l2 = l2.next
-                print('3','#', cnt, cur.val, l1.val, l2.val)
-                cnt += 1
             else:
                 cur.next = l1
-                cur = cur.next
                 l1 = l1.next
-                print('4','#', cnt, cur.val, l1.val, l2.val)
-                cnt += 1
+            cur = cur.next
+        if l1 == None: cur.next = l2
+        if l2 == None: cur.next = l1
         return head
 
 input_list1 = read().rstrip().split(',')
