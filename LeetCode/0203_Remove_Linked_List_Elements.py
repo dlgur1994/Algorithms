@@ -20,14 +20,17 @@ class LinkedList:
 
 class Solution:
     def removeElements(self, head: ListNode, val: int) -> ListNode:
+        dummy = ListNode('dummy')
         cur = head
-        pre = ListNode('dummy')
+        pre = dummy
         while cur:
             if cur.val != val:
                 pre.next = cur
                 pre = pre.next
+            if cur.next == None:
+                pre.next = None
+                return dummy.next
             cur = cur.next
-        return ListNode('dummy').next
 
 input_list = list(map(int,read().rstrip().split(',')))
 input_val = int(read().rstrip())
