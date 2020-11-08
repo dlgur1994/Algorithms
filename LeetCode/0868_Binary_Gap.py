@@ -12,7 +12,6 @@ class Solution:
             n //= 2
         if n == 1:
             check_list.append(cnt)
-        print(check_list)
 
         max_len = 0
         for i in range(len(check_list)-1):
