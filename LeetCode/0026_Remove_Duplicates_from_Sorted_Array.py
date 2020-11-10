@@ -11,7 +11,6 @@ class Solution:
                 num_dict[e] = i
                 nums[cnt] = e
                 cnt += 1
-        print(nums)
         return cnt
 
 input_list = list(map(int,read().rstrip().split(',')))
