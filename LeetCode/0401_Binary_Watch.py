@@ -8,9 +8,13 @@ class Solution:
         minutes = [1,2,4,8,16,32]
         output = []
 
-        for i in range(num):
-            hr = 0
-            mi = 0
+        for i in range(num+1):
+            if i==0:
+                h = 0
+                mi =
+            elif i==1:
+                h =
+                mi =
             output.append((hr,mi))
 
         return output
