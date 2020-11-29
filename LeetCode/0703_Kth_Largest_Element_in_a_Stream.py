@@ -6,37 +6,21 @@ read = sys.stdin.readline
 
 class KthLargest:
     def __init__(self, k: int, nums: List[int]):
-        nums = sorted(nums, reverse=True)
-        nums = nums[:k]
+        #changed nums to the heap with largest k numbers
         heapq.heapify(nums)
         self.heap = heapq.nlargest(k, nums)
+        heapq.heapify(self.heap)
         self.k = k
 
     def add(self, val: int) -> int:
-        if self.heap == []:
-            self.heap.append(val)
-            return val
-        if val > self.heap[-1]:
-            heapq.heapify(self.heap)
+        #if the length of the heap is smaller less than k, push val into the heap
+        if len(self.heap)<self.k:
             heapq.heappush(self.heap, val)
-            self.heap = heapq.nlargest(self.k, self.heap)
-        return self.heap[-1]
-
-# class KthLargest:
-#     def __init__(self, k: int, nums: List[int]):
-#         heapq.heapify(nums)
-#         self.heap = heapq.nlargest(k, nums)
-#         self.k = k
-#
-#     def add(self, val: int) -> int:
-#         if self.heap == []:
-#             self.heap.append(val)
-#             return val
-#         if val > self.heap[-1]:
-#             heapq.heapify(self.heap)
-#             heapq.heappush(self.heap, val)
-#             self.heap = heapq.nlargest(self.k, self.heap)
-#         return self.heap[-1]
+            return self.heap[0]
+        #if val is bigger than the smallest number of the heap, pop the heap and push val into the heap
+        if val > self.heap[0]:
+            heapq.heappushpop(self.heap, val)
+        return self.heap[0]
 
 input_val = int(read().rstrip())
 input_list = list(map(int,read().rstrip().split(',')))
