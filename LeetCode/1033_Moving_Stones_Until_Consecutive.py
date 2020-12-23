@@ -12,7 +12,7 @@ class Solution:
             min = 0
         lmax = (b-a-1) if b>a+1 else 0 # Number of all cases that can come from the left
         rmax = (c-b-1) if c>b+1 else 0 # Number of all cases that can come from the right
-        return min, lmax+rmax
+        return min, lmax+rma
 
 a,b,c = map(int, read().rstrip().split(','))
 mod = Solution()
