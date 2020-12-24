@@ -41,7 +41,8 @@ class Solution:
             self.dfs(root)
         except:
             return False
-        return True
+        else:
+            return True
 
 nodes = list(map(TreeNode, read().rstrip().split(',')))
 binary_tree = BinaryTree()
