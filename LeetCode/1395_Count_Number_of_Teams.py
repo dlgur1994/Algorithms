@@ -12,7 +12,7 @@ class Solution:
 
         for i in range(n-1, -1, -1):
             for j in range(i+1, n):
-                print(rating[i],rating[j])
+                print(i,j)
                 if rating[i] < rating[j]:
                     up[i] += 1
                     teams += up[j]
@@ -21,6 +21,7 @@ class Solution:
                     down[i] += 1
                     teams += down[j]
                     print("down", down)
+                print("teams", teams)
         print(up)
         print(down)
         return teams
