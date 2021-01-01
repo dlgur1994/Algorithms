@@ -3,28 +3,29 @@ import sys
 
 read = sys.stdin.readline
 
+'''
+Check one by one from the back of the list.
+Think of the case in which the number in front (ith) < the number in the back (jth) or 'ith' >= 'jth'.
+If 'ith' is greater than 'jth', add 1 to list up[i].
+Otherwise, add 1 to list down[i].
+Add the number up/down [j] to 'result'.
+This is to find something like this situation in the back when it is ith<jth or ith>=jth.
+'''
 class Solution:
     def numTeams(self, rating: List[int]) -> int:
         n = len(rating)
         up = [0] * n
         down = [0] * n
-        teams = 0
-
-        for i in range(n-1, -1, -1):
+        result = 0
+        for i in range(n-2, -1, -1):
             for j in range(i+1, n):
-                print(i,j)
                 if rating[i] < rating[j]:
                     up[i] += 1
-                    teams += up[j]
-                    print("up",up)
+                    result += up[j]
                 else:
                     down[i] += 1
-                    teams += down[j]
-                    print("down", down)
-                print("teams", teams)
-        print(up)
-        print(down)
-        return teams
+                    result += down[j]
+        return result
 
 # class Solution:
 #     def numTeams(self, rating: List[int]) -> int:
