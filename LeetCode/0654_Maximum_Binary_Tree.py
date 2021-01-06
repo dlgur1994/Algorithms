@@ -9,21 +9,20 @@ class TreeNode:
         self.left = left
         self.right = right
 
-# class BinaryTree:
-#     def __init__(self):
-#         self.root = None
-#
-#     def insertNode(self, node):
-
 class Solution:
     def makeNodes(self, l):
-        big = max(l)
-        left = l[:l.index(big)]
-        right = l[l.index(big)+1:]
-        return left,right
+        if l == None:
+            return None
+        else:
+            node = TreeNode(max(l))
+            id = l.index(max(l))
+            node.left = self.makeNodes(l[:id])
+            node.right = self.makeNodes(l[id+1:])
+        return node
 
     def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
-        print(self.makeNodes(nums))
+        root = self.makeNodes(nums)
+        return root
 
 nums = list(map(int, read().rstrip().split(',')))
 mod = Solution()
