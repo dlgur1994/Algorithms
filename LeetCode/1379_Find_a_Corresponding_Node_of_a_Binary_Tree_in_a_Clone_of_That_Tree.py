@@ -29,27 +29,27 @@ class BinaryTree:
 
 class Solution:
     def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
-        que = deque([(original, cloned)])
-        while que:
-            orgin, clon = que.popleft()
-            if orgin is target:
+        q = deque([(original, cloned)]) # Store the original and cloned nodes together.
+        while q:
+            origin, clon = q.popleft()
+            if origin is target: # When the target node is found, returns the cloned node.
                 return clon
-            if orgin.left:
-                que.append((orgin.left, clon.left))
-            if orgin.right:
-                que.append((orgin.right, clon.left))
+            if origin.left:
+                q.append((origin.left, clon.left))
+            if origin.right:
+                q.append((origin.right, clon.right))
 
 # class Solution:
 #     def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
-#         self.q = deque([cloned])
-#         while self.q:
-#             cur = self.q.popleft()
-#             if cur.val == target:
+#         q = deque([cloned])
+#         while q:
+#             cur = q.popleft()
+#             if cur.val == target.val:
 #                 return cur
 #             if cur.left:
-#                 self.q.append(cur.left)
+#                 q.append(cur.left)
 #             if cur.right:
-#                 self.q.append(cur.right)
+#                 q.append(cur.right)
 
 values = list(read().rstrip().split(','))
 tar_val = int(read().rstrip())
