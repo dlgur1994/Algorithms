@@ -41,31 +41,28 @@ class BinaryTree:
 class Solution:
     def __init__(self):
         self.nodes = []
-        self.new_root = None
 
-    def getNodes(self, node):
+    def getNodes(self, node): # create a list of nodes in ascending order of node values.
         if node.left:
             self.getNodes(node.left)
         self.nodes.append(node)
         if node.right:
             self.getNodes(node.right)
 
-    def makeTree(self, l):
-        if self.new_root == None:
-            self.new_root = l[len(l)//2]
-            self.new_root.left = l[len(l)//4]
-            self.new_root.right = l[len(l)//4*3]
-        else:
-            cur = self.new_root
-            while cur:
-
+    def makeTree(self, start, end): # create a binary search tree
+        if start >= end:
+            return None
+        mid = (start+end)//2
+        mid_node = self.nodes[mid]
+        mid_node.left = self.makeTree(start, mid)
+        mid_node.right = self.makeTree(mid+1, end)
+        return mid_node
 
     def balanceBST(self, root: TreeNode) -> TreeNode:
         self.getNodes(root)
-        self.makeTree()
-        return self.new_root
+        return self.makeTree(0, len(self.nodes))
 
-vals = list(map(int, read().rstrip().split(',')))
+vals = list(read().rstrip().split(','))
 binary_tree = BinaryTree()
 for val in vals:
     binary_tree.insertNode(TreeNode(val))
