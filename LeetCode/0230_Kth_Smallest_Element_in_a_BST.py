@@ -39,18 +39,41 @@ class BinaryTree:
 
 class Solution:
     def __init__(self):
-        self.vals = []
+        self.ans = 0
+        self.cnt = 0
+        self.flag = True
 
-    def preOrder(self, node):
-        if node.left:
-            self.preOrder(node.left)
-        self.vals.append(node.val)
-        if node.right:
-            self.preOrder(node.right)
+    def inOrder(self, node, k):
+        if self.flag: # it's an inorder traversal
+            if node.left:
+                self.inOrder(node.left, k)
+            self.cnt += 1
+            if self.cnt == k: # it's the stopping point
+                self.ans = node.val
+                self.flag = False
+            if node.right:
+                self.inOrder(node.right, k)
+        else:
+            return self.ans
 
     def kthSmallest(self, root: TreeNode, k: int) -> int:
-        self.preOrder(root)
-        return self.vals[k-1]
+        self.inOrder(root, k)
+        return self.ans
+
+# class Solution:
+#     def __init__(self):
+#         self.vals = []
+#
+#     def inOrder(self, node):
+#         if node.left:
+#             self.inOrder(node.left)
+#         self.vals.append(node.val)
+#         if node.right:
+#             self.inOrder(node.right)
+#
+#     def kthSmallest(self, root: TreeNode, k: int) -> int:
+#         self.inOrder(root)
+#         return self.vals[k-1]
 
 vals = list(map(int, read().rstrip().split(',')))
 binary_tree = BinaryTree()
