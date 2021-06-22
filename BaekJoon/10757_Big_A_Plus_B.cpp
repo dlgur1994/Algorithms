@@ -4,38 +4,35 @@
 using namespace std;
 
 int main(void) {
-    string a, b, lon, sho;
-    int temp;
+    string a, b;
+    int ans[10001] = {0,};
 
     cin >> a >> b;
+    if (b.length() > a.length()) {
+        swap(a,b);
+    }
     reverse(a.begin(), a.end());
     reverse(b.begin(), b.end());
-    if (a.length() > b.length()) {
-        lon = a;
-        sho = b;
-    }
-    else {
-        lon = b;
-        sho = a;
-    }
-
-    for (int i=0 ; i<sho.length() ; i++) {
-        temp = (lon[i]-'0') + (sho[i]-'0');
-        if(temp < 10) {
-            lon[i] = temp + '0'; 
+    
+    for (int i=0 ; i<a.length() ; i++) {
+        if (i < b.length()) {
+            ans[i] += a[i]-'0' + b[i]-'0';
         }
         else {
-            lon[i] = temp - 10 + '0';
-            if (i == lon.length()-1) {
-                lon.insert(lon.length(), "1");
-            }
-            else {
-                lon[i+1]++;
-            }   
+            ans[i] += a[i]-'0';
+        }
+        if (ans[i] > 9) {
+            ans[i] = ans[i]-10;
+            ans[i+1]++;
         }
     }
 
-    reverse(lon.begin(), lon.end());
-    cout << lon << '\n';
+    for (int i=a.length() ; i>-1 ; i--) {
+        if (i==a.length() && ans[i]==0) {
+            continue;
+        }
+        cout << ans[i];
+    }
+    cout << '\n';
     return 0;
 }
