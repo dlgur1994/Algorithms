@@ -7,12 +7,18 @@ struct Node {
 
 class LinkedList {
 private:
-    Node * head = NULL;
-    Node * tail = NULL;
-    Node * cur = NULL;
-    Node * ptr = NULL;
-    Node * del_node = NULL;
+    Node * head;
+    Node * tail;
+    Node * cur;
+    Node * ptr;
+    Node * del_node;
+
 public:
+    LinkedList() {
+        head = NULL;
+        tail = NULL;
+    }
+
     void addNode(int val) {
         ptr = new Node(); // 'new' keyword provides dynamic allocation like 'malloc' function in C language. And dynamically assigned objects must be pointed out using a pointer.
         ptr->val = val; // '->' is a symbol used by a pointer to access an element.
