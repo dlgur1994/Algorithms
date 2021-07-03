@@ -13,7 +13,7 @@ int main(void) {
 
     cin >> num_of_line;
     for (int i=0 ; i<num_of_line ; i++) {
-        cin >> temp;
+         cin >> temp;
         if (temp==0 && top>0) {
             stack[top--] = 0;
         }
