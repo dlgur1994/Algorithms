@@ -4,6 +4,7 @@
         "ios": "cpp",
         "algorithm": "cpp",
         "__locale": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iosfwd": "cpp"
     }
 }
