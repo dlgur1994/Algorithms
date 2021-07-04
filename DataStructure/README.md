@@ -17,6 +17,7 @@
         - Queue.cpp
         - Queue_queue.py
     - Deque
+        - Deque.cpp
         - Queue_deque.py
 
 - Non Linear
