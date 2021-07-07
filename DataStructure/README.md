@@ -22,6 +22,7 @@
 
 - Non Linear
     - Binary Tree
+        BinaryTree.cpp
     - Binary Search Tree
     - AVL tree
     - Heap
