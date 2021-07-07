@@ -22,7 +22,7 @@
 
 - Non Linear
     - Binary Tree
-        [BinaryTree.cpp](https://github.com/dlgur1994/Algorithms/blob/master/DataStructure/BinaryTree.cpp)
+        - [BinaryTree.cpp](https://github.com/dlgur1994/Algorithms/blob/master/DataStructure/BinaryTree.cpp)
     - Binary Search Tree
     - AVL tree
     - Heap
