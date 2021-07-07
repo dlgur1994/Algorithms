@@ -21,13 +21,10 @@
         - Queue_deque.py
 
 - Non Linear
-    - Tree
-        - Binary Tree
-        - Binary Search Tree
-    - Priority Queue
+    - Binary Tree
+    - Binary Search Tree
+    - AVL tree
     - Heap
-    - Search
-        - AVL
-    - Table
+    - Priority Queue
     - Hash
     - Graph
