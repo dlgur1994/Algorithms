@@ -28,18 +28,21 @@ public:
         cen_node->right = right_node;
     }
 
+    // center -> left -> right
     void preorder(Node * cur) {
         cout << cur->data << ' ';
         if (cur->left != NULL) { preorder(cur->left); }
         if (cur->right != NULL) { preorder(cur->right); }
     }
 
+    // left -> center -> right
     void inorder(Node * cur) {
         if (cur->left != NULL) { inorder(cur->left); }
         cout << cur->data << ' ';
         if (cur->right != NULL) { inorder(cur->right); }
     }
 
+    // left -> right -> center
     void postorder(Node * cur) {
         if (cur->left != NULL) { postorder(cur->left); }
         if (cur->right != NULL) { postorder(cur->right); }
