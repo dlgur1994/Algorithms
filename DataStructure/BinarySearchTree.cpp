@@ -81,6 +81,7 @@ public:
         Node * child = root;
         while (child != NULL) {
             if (child->data == val) {
+                // if both left and right of the node are null (leaf node)
                 if (child->left==NULL && child->right==NULL) {
                     if (parent->data > child->data) {
                         parent->left = NULL;
@@ -91,6 +92,8 @@ public:
                     cout << val << " Erased (0 child)" << endl;
                     return;
                 }
+
+                // if only one side(right) of the node exists
                 else if (child->left==NULL) {
                     if (parent->data > child->data) { 
                         parent->left = child->right;
@@ -101,6 +104,7 @@ public:
                     cout << val << " Erased (1 child)" << endl;
                     return;
                 }
+                // if only one side(left) of the node exists
                 else if (child->right==NULL) {
                     if (parent->data > child->data) { 
                         parent->left = child->left;
@@ -111,6 +115,8 @@ public:
                     cout << val << " Erased (1 child)" << endl;
                     return;
                 }
+
+                // if two sides of the node exists
                 else {
                     Node * cur = child->right;
                     Node * p_cur = child;
