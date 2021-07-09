@@ -1,6 +1,6 @@
-# DataStructure
+# Data Structure
 
-### This is to review the data structure that I learned in school once again and become a data structure master.
+### This is to review data structures that I learned in school again and become a data structure master.
 
 - Linear 
     - Linked Lists
