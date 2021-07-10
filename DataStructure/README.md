@@ -24,8 +24,11 @@
         - [BinaryTree.cpp](https://github.com/dlgur1994/Algorithms/blob/master/DataStructure/BinaryTree.cpp)
     - Binary Search Tree
         - [BinarySearchTree.cpp](https://github.com/dlgur1994/Algorithms/blob/master/DataStructure/BinarySearchTree.cpp)
-    - AVL tree
     - Heap
+        - 
     - Priority Queue
+        - 
     - Hash
+        - 
     - Graph
+        - 
