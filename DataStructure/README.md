@@ -25,9 +25,7 @@
     - Binary Search Tree
         - [BinarySearchTree.cpp](https://github.com/dlgur1994/Algorithms/blob/master/DataStructure/BinarySearchTree.cpp)
     - Heap
-        - [Heap.cpp](https://github.com/dlgur1994/Algorithms/blob/master/DataStructure/Heap.cpp)
-    - Priority Queue
-        - 
+        - [Heap.cpp](https://github.com/dlgur1994/Algorithms/blob/master/DataStructure/Heap.cpp) 
     - Hash
         - 
     - Graph
