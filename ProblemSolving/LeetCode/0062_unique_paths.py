@@ -7,7 +7,6 @@ class Solution:
     for i in range(n, m*n):
       if (i%n) != 0:
         map[i] = map[i-1] + map[i-n]  
-    print(map)
     return map[-1] 
 
 # class Solution:
