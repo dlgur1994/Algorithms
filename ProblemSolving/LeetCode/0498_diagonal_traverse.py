@@ -4,23 +4,29 @@ from typing import List
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
         result = []
-        row, col = 0, 0
+        row, col = len(mat), len(mat[0])
+        x, y = 0, 0
         dir = 'up'
-        while len(result) < len(mat)*len(mat[0]):
-            if row>-1 and row<len(mat) and col>-1 and col<len(mat[0]):
-                result.append(mat[row][col])
+        
+        while True:
+            result.append(mat[x][y])
+            if x==row-1 and y==col-1: break
             if dir == 'up':
-                row -= 1
-                col += 1
+                if x > 0 and y < col-1: x, y = x-1, y+1
+                else:
+                    dir = 'down'
+                    if y < col-1: y += 1
+                    else: x += 1
             else:
-                row += 1
-                col -= 1
-            if row == -1:
-                dir = 'up'
-            else:
-                dir = 'down'
+                if x < row-1 and y > 0: x, y = x+1, y-1
+                else:
+                    dir = 'up'
+                    if x < row-1: x += 1
+                    else: y += 1
+
         return result
 
+# Time Limit Exceeded
 # class Solution:
 #     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
 #         result = [mat[0][0]]
