@@ -14,15 +14,17 @@ private:
 public:
     HashTable(int size) {
         hash_size = size;
+        hash_table(hash_size, NULL);
     }
     
-    int hashing(T val) {
-        return int(val)%hash_size;
-    }
+    // int hashing(T val) {
+    //     return (val)%hash_size;
+    // }
     
-    void InsertData(T val) {
-        hash_table[hashing(val)].push_back(val);
-    }
+    // void InsertData(T val) {
+    //     // hash_table[hashing(val)].push_back(val);
+    //     cout << hashing(val) << endl;
+    // }
 
     // void PrintData() {
     //     list<T>::iterator iter;
@@ -43,9 +45,9 @@ public:
 int main(void) {
     array<int,10> values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     HashTable<list<int> > hash_table(5);
-    for (int i=0 ; i<values.size() ; i++) {
-        hash_table.InsertData(values[i]);
-    }
+    // for (int i=0 ; i<values.size() ; i++) {
+    //     hash_table.InsertData(values[i]);
+    // }
     // hash.PrintData();
 
 
