@@ -31,13 +31,18 @@ class Tree:
             self.printNode(node.right)
 
 class Solution:
-    def dfs(node, sum, targetsum):
-        if sum + node.val == targetsum:
+    def dfs(self, node, arr, sum, targetsum):
+        if node.left:
+            arr += node
+            self.dfs(node.left, arr, sum, targetsum)
+        if node.right:
+            arr += node
+            self.dfs(node.right, arr, sum, targetsum)
             
 
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
         ans = []
-        ans = dfs(root)
+        ans = self.dfs(root, [], 0, targetSum)
         return ans
 
 nodes = list(map(TreeNode,sys.stdin.readline().rstrip().split(',')))
