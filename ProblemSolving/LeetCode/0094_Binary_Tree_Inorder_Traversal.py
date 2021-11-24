@@ -49,6 +49,6 @@ nodes = list(map(TreeNode, read().rstrip().split(',')))
 binary_tree = BinaryTree()
 for i in range(len(nodes)//2):
     binary_tree.insertNode(nodes[i], nodes[2*i+1], nodes[2*i+2])
-# binary_tree.printNode(binary_tree.root)
+binary_tree.printNode(binary_tree.root)
 mod = Solution()
 print(mod.inorderTraversal(binary_tree.root))
