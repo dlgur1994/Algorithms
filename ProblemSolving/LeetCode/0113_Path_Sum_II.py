@@ -50,8 +50,7 @@ class Solution:
 
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
         ans = []
-        visited = []
-        self.dfs(root, targetSum, 0, visited, ans)
+        self.dfs(root, targetSum, 0, [], ans)
         return ans
 
 nodes = list(map(TreeNode,sys.stdin.readline().rstrip().split(',')))
@@ -64,3 +63,4 @@ for i in range(len(nodes)//2):
 
 mod = Solution()
 print(mod.pathSum(tree.root, targetsum))
+##test
