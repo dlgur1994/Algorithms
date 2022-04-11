@@ -19,6 +19,7 @@ class Tree:
         if left.val != 'null':
             center.left = left
             left.val = int(left.val)
+
         if right.val != 'null':
             center.right = right
             right.val = int(right.val)
@@ -31,18 +32,26 @@ class Tree:
             self.printNode(node.right)
 
 class Solution:
-    def dfs(self, node, arr, sum, targetsum):
+    def dfs(self, node, target, sum, visited, ans):
+        visited.append(node.val)
+        sum += node.val
+        # if sum > target:
+        #     return
+        if not node.left and not node.right and sum == target:
+            ans.append(visited)
+
         if node.left:
-            arr += node
-            self.dfs(node.left, arr, sum, targetsum)
+            self.dfs(node.left, target, sum, visited, ans)
         if node.right:
-            arr += node
-            self.dfs(node.right, arr, sum, targetsum)
-            
+            self.dfs(node.right, target, sum, visited, ans)
+        
+        visited.pop()
+        sum -= node.val
 
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
         ans = []
-        ans = self.dfs(root, [], 0, targetSum)
+        visited = []
+        self.dfs(root, targetSum, 0, visited, ans)
         return ans
 
 nodes = list(map(TreeNode,sys.stdin.readline().rstrip().split(',')))
