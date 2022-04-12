@@ -32,25 +32,29 @@ class Tree:
             self.printNode(node.right)
 
 class Solution:
-    def dfs(self, node, target, sum, visited, ans):
+    def dfs(self, node, target, visited, ans):
+        if node == None:
+            return
+        
         visited.append(node.val)
-        sum += node.val
-        # if sum > target:
-        #     return
-        if not node.left and not node.right and sum == target:
-            ans.append(visited)
+        if not node.left and not node.right:
+            total = sum(visited)
+            if total == target:
+                temp = visited[:]
+                ans.append(temp)
+            visited.pop()
+            return
 
         if node.left:
-            self.dfs(node.left, target, sum, visited, ans)
+            self.dfs(node.left, target, visited, ans)
         if node.right:
-            self.dfs(node.right, target, sum, visited, ans)
-        
-        visited.pop()
-        sum -= node.val
+            self.dfs(node.right, target, visited, ans)
 
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        visited.pop()
+
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:   
         ans = []
-        self.dfs(root, targetSum, 0, [], ans)
+        self.dfs(root, targetSum, [], ans)
         return ans
 
 nodes = list(map(TreeNode,sys.stdin.readline().rstrip().split(',')))
@@ -63,4 +67,3 @@ for i in range(len(nodes)//2):
 
 mod = Solution()
 print(mod.pathSum(tree.root, targetsum))
-##test
